@@ -1,0 +1,75 @@
+{% extends "home.html" %}
+{% block content %}
+
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+</head>
+
+
+
+<div style='width:75%;margin:auto' >
+
+	<!----------------------------------------------------------------	FILTER BY EMPLOYEE ID  ------------------------------------------------------------------>
+<div class='row sticky-top'>
+	<div class='col'>
+        <button class="btn btn-link text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+			<span class="d-flex justify-content-start font-weight-bold">Filter by Employee ID</span>
+        </button>
+	</div>
+	<!----------------------------------------------------------------	FILTER BY DATE  ------------------------------------------------------------------------------>
+	<div class='col'>
+        <button class="btn btn-link text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			<span class="d-flex justify-content-start font-weight-bold">Filter by Date</span>
+        </button>
+        </div>
+</div>
+
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<div class="accordion" id="accordionExample">
+	<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+	<!----------------------------------------------------------------	FILTER BY EMPLOYEE ID  ------------------------------------------------------------------>
+	<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+  <div class="card" style='background-color:#042037;color:white'>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+		  <form action='' method='post'>
+		  {{ form1.hidden_tag() }}
+			<div  class="text-center">{{ form1.emp_id.label() }}{{ form1.emp_id(class_="form-control", style="width:50%; margin:auto;text-align:center") }}</div>
+			<div class="text-center " style='padding-top:2%'>{{ form1.submit_id( class_="btn btn-primary btn") }}</div>	  
+		</form>
+      </div>
+    </div>
+  </div>
+	<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+	<!----------------------------------------------------------------	FILTER BY DATE  ------------------------------------------------------------------------------>
+	<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+  <div class="card" style='background-color:#042037;color:white' >
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+			<form action='' method='post'>
+					{{ form2.hidden_tag() }}
+				<div class='row'>
+					<div class='col'><div>{{ form2.date1.label() }}{{ form2.date1(type='date', class_='form-control') }}</div></div>
+					<div class='col'><div>{{ form2.date2.label() }}{{ form2.date2(type='date', class_='form-control') }}</div></div>
+				</div>
+				<div class="text-center " style='padding-top:2%'>{{ form2.submit_ran( class_="btn btn-primary btn") }}</div>
+			</form>
+		</div>
+      </div>
+	</div>
+</div>
+
+</div>
+
+<div style=' width:80%; margin:auto;margin-top:5%'>
+{% block show %}{% endblock %}
+</div>
+
+		
+
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% extends "home.html" %}
+{% block content %}
+
+<form action='' method='post'>
+	
+{% for field in form.errors %}
+	{% for error in form.errors[field] %}
+	<div class="alert alert-danger alert-dismissible">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		{{ error }}{{ form[field].label }}
+	</div>
+	{% endfor %}
+{% endfor %}
+	
+		{{ form.hidden_tag() }}
+	<style>body{background: #042037;}</style>
+	<div class='container' style='width:80%; padding:1% 5%; margin:auto; color:white'>
+	<div class='row'>
+		<div class='col'><div class="form-group">{{ form.employee_id.label() }}{{ form.employee_id(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.name.label() }}{{ form.name(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.designation.label() }}{{ form.designation(class_="form-control") }}</div></div>
+	</div>
+	<div class='row'>
+		<div class='col'><div class="form-group">{{ form.department.label() }}{{ form.department( class_="custom-select") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.dob.label() }}{{ form.dob(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.doj.label() }}{{ form.doj(class_="form-control") }}</div></div>
+	</div>
+	<div class='row'>
+		<div class='col'><div class="form-group">{{ form.basic.label() }}{{ form.basic(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.vda.label() }}{{ form.vda(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.others.label() }}{{ form.others(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.pt.label() }}{{ form.pt(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.cca.label() }}{{ form.cca(class_="form-control") }}</div></div>
+	</div>
+	<div class='row'>
+		<div class='col'><div class="form-group">{{ form.pf_uan_no.label() }}{{ form.pf_uan_no(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.aadhar_no.label() }}{{ form.aadhar_no(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.pan_no.label() }}{{ form.pan_no(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.total_cl.label() }}{{ form.total_cl(class_="form-control") }}</div></div>
+	</div>
+	<div class='row'>
+		<div class='col'><div class="form-group">{{ form.esi_no.label() }}{{ form.esi_no(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.acc_no.label() }}{{ form.acc_no(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.location.label() }}{{ form.location(class_="form-control") }}</div></div>
+	</div>
+	<div class='row'>
+		<div class='col'><div class="form-group">{{ form.bank_branch.label() }}{{ form.bank_branch(class_="form-control") }}</div></div>
+		<div class='col'><div class="form-group">{{ form.ifs_code.label() }}{{ form.ifs_code(class_="form-control") }}</div></div>
+	</div>
+	<div class="text-center">{{ form.submit( class_="btn btn-primary btn-lg") }}</div>
+	</div>
+	
+	
+</form>
+{% endblock content %}

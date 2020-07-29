@@ -1,0 +1,12 @@
+{% extends "home.html" %}
+{% block content %}
+
+<form action='' method='post'>
+	{{ form.hidden_tag() }}
+	<div class='container' style='width:60%; padding:1% 5%; margin:auto;margin-top:12%'>
+	<div  class="text-center">{{ form.emp_id.label() }}{{ form.emp_id(class_="form-control", style="width:50%; margin:auto;text-align:center") }}</div>
+	<div class="text-center " style='padding-top:2%'>{{ form.submit( class_="btn btn-primary btn-lg") }}</div>
+	</div>
+</form>
+
+{% endblock content %}
