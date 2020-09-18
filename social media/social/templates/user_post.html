@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% for post in pst.items %}
+
+<div style="max-width:786px; padding:4px 15px; margin:auto">
+   <div class="card gedf-card">
+     <div class="card-header">
+       <div class="d-flex justify-content-between align-items-center">
+         <div class="d-flex justify-content-between align-items-center">
+           <div class="mr-2">
+             <img class="rounded-circle" width="45" src="{{ url_for('static', filename='profile_pics/'+post.author.img_file) }}" alt="">
+           </div>
+           <div class="ml-2">
+             <a class="card-link" href="{{ url_for('user_post', user=post.author.username) }}">
+               <div class="h5 m-0">{{ post.author.name }}</div>
+             </a>
+             <div class="h7 text-muted">@{{ post.author.username }}</div>
+             </div>
+         </div>
+         <div>
+         </div>
+       </div>
+     </div>
+     <div class="card-body">
+       <a class="card-link text-dark" href="{{ url_for('post', post_id=post.id) }}">
+         <h5 class="card-title" style="font-size:25px; font-fami1ly:Segoe Script"><b>{{ post.title }}</b></h5>
+       </a>
+         <p class="card-text">{{ post.content }}</p>
+        <small style="float:right" class="text-muted h7 mb-2">{{ post.date_posted.strftime('%d/%m/%Y')}} &ensp;  {{post.date_posted.strftime('%H:%M:%S') }}</small>
+     </div>
+   </div>
+</div>
+{% endfor %}
+
+<div style="max-width:786px; padding:4px 15px; margin:auto">
+{% for page_no in pst.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+  {% if page_no %}
+    {% if page_no == pst.page %}
+      <a class="btn btn-dark mb-4 active" href="{{ url_for('home', page=page_no) }}">{{ page_no }}</a>
+    {% else %}
+      <a class="btn btn-outline-dark mb-4" href="{{ url_for('home', page=page_no) }}">{{ page_no }}</a>
+    {% endif %}
+  {% else %}
+    ...
+  {% endif %}
+{% endfor %}
+</div>
+
+{% endblock content %}

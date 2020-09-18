@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<form action="" method="post">
+    <div style="max-width:786px; padding:4px 30px; margin:auto">
+        {{ form.hidden_tag() }}
+        {{ form.title.label }}
+        {{ form.title(class_='form-control', placeholder='Title') }}<br>
+        {{ form.content.label }}
+        {{ form.content(class_='form-control', placeholder='Contert') }}<br>
+        {{ form.submit(class_='btn btn-lg btn-dark') }}
+    </div>
+</form>
+
+{% endblock %}

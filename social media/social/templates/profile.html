@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+
+<div class="container">
+
+      {% for field, errors in form.errors.items() %}
+      <div class="alert alert-info alert-warning fade show" role="alert" style="margin: 5px 10px">
+          {{ form[field].label }}: {{ ' ,'.join(errors) }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      {% endfor %}
+      {% for field, errors in form1.errors.items() %}
+      <div class="alert alert-danger fade show" role="alert" style="margin: 5px 10px">
+          {{ form1[field].label }}: {{ ' ,'.join(errors) }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      {% endfor %}
+      {% for field, errors in form2.errors.items() %}
+      <div class="alert alert-info alert-warning fade show" role="alert" style="margin: 5px 10px">
+          {{ form2[field].label }}: {{ ' ,'.join(errors) }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      {% endfor %}
+
+
+
+
+      <div class="row gutters-sm">
+        <div class="col-md-4 d-none d-md-block">
+          <div class="card">
+            <div class="card-body">
+              <nav class="nav flex-column nav-pills nav-gap-y-1">
+                <a href="#profile" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded active">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Profile Information
+                </a>
+                <a href="#account" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings mr-2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>Account Settings
+                </a>
+                <a href="#security" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield mr-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Security
+                </a>
+               </nav>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header border-bottom mb-3 d-flex d-md-none">
+              <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
+                <li class="nav-item">
+                  <a href="#profile" data-toggle="tab" class="nav-link has-icon active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a>
+                </li>
+                <li class="nav-item">
+                  <a href="#account" data-toggle="tab" class="nav-link has-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></a>
+                </li>
+                <li class="nav-item">
+                  <a href="#security" data-toggle="tab" class="nav-link has-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body tab-content">
+              <div class="tab-pane active" id="profile">
+                <h6>YOUR PROFILE INFORMATION</h6>
+                <hr>
+                <form action="" method="post" enctype="multipart/form-data">
+                  {{ form.hidden_tag() }}
+                   <div class="mb-4">
+                      <input src="{{ img }} " type="image"
+                           class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
+                      <p>{{ form.pic() }}</p>
+                    </div>
+                  <div class="form-group">
+                    <label>Full Name</label>
+                    {{ form.name(class_='form-control', placeholder='Full Name') }}
+                    </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    {{ form.email(class_='form-control', placeholder='Email') }}
+                    <small id="email" class="form-text text-muted">Your name may appear around here where you are mentioned. You can change or remove it at any time.</small>
+                  </div>
+                  <div class="form-group small text-muted">
+                    All of the fields on this page are optional and can be deleted at any time, and by filling them out, you're giving us consent to share this data wherever your user profile appears.
+                  </div>
+                  {{ form.submit(class_="btn btn-dark") }}
+                  </form>
+              </div>
+              <div class="tab-pane" id="account">
+                <h6>ACCOUNT SETTINGS</h6>
+                <hr>
+                <form action="" method="post" enctype="multipart/form-data">
+                  {{ form2.hidden_tag() }}
+                  <div class="form-group">
+                    <label>Username</label>
+                    {{ form2.username() }}<small id="usernameHelp" class="form-text text-muted">After changing your username, your old username becomes available for anyone else to claim.</small>
+                  </div>
+                  {{ form2.submit2(class_="btn btn-dark") }}
+                  <hr>
+                  <div class="form-group">
+                    <label class="d-block text-danger">Delete Account</label>
+                    <p class="text-muted font-size-sm">Once you delete your account, there is no going back. Please be certain.</p>
+                  </div>
+                  <button class="btn btn-danger" type="button">Delete Account</button>
+                </form>
+              </div>
+              <div class="tab-pane" id="security">
+                <h6>SECURITY SETTINGS</h6>
+                <hr>
+                <form action="" method="post" enctype="multipart/form-data">
+                  {{ form1.hidden_tag() }}
+                  <div class="form-group">
+                    <label class="d-block">Change Password</label>
+                    {{ form1.old_password(class_="form-control", placeholder='Enter your Old Password') }}<br>
+                    {{ form1.password(class_="form-control", placeholder='Enter your New Password') }}<br>
+                    {{ form1.confirm_password(class_="form-control", placeholder='Confirm your New Password') }}<br>
+                  </div>
+                  {{ form1.submit1(class_="btn btn-dark") }}
+                 </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+<script>
+  $("input[type='image']").click(function() {
+    $("input[id='my_file']").click();
+});
+</script>
+
+</div>
+{% endblock content %}
